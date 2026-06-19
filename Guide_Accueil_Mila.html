@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide d'accueil de Mila</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6EE;
+    --paper:#FFFFFF;
+    --ink:#322E29;
+    --muted:#6F675C;
+    --terra:#C9744B;
+    --terra-soft:#FBE7DA;
+    --sage:#7E9070;
+    --sage-soft:#E9F0E1;
+    --rose:#F6E1DB;
+    --rose-line:#D98E63;
+    --blue-soft:#E4EDF2;
+    --blue-line:#6E9CB5;
+    --gold:#E2B65C;
+    --line:#E7DFD2;
+    --shadow:0 10px 30px rgba(80,60,40,.10);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#EFE7DA;
+    color:var(--ink);
+    font-family:'Nunito',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.6;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces','Georgia',serif;}
+
+  /* Screen helper banner */
+  .helper{
+    max-width:820px;margin:18px auto 6px;padding:14px 18px;
+    background:#fff;border:1px dashed var(--terra);border-radius:14px;
+    color:var(--muted);font-size:14px;display:flex;gap:10px;align-items:center;
+  }
+  .helper b{color:var(--terra);}
+  .helper button{
+    margin-left:auto;border:none;background:var(--terra);color:#fff;
+    padding:9px 16px;border-radius:999px;font-weight:800;cursor:pointer;font-family:'Nunito';
+  }
+
+  /* Page model */
+  .page{
+    width:820px;min-height:1160px;margin:18px auto;background:var(--cream);
+    border-radius:18px;box-shadow:var(--shadow);overflow:hidden;position:relative;
+    padding:46px 52px;
+  }
+  .page.cover{padding:0;}
+
+  /* Cover */
+  .cover-hero{position:relative;height:1160px;}
+  .cover-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+  .cover-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,30,22,.05) 0%,rgba(40,30,22,.0) 35%,rgba(40,30,22,.55) 100%);}
+  .cover-tag{position:absolute;top:40px;left:0;right:0;text-align:center;color:#fff;letter-spacing:.32em;font-size:13px;font-weight:800;text-transform:uppercase;text-shadow:0 2px 10px rgba(0,0,0,.35);}
+  .cover-block{position:absolute;left:46px;right:46px;bottom:54px;color:#fff;}
+  .cover-block h1{font-size:74px;line-height:.98;margin:0 0 8px;text-shadow:0 4px 18px rgba(0,0,0,.45);}
+  .cover-block .sub{font-size:20px;font-weight:700;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:.97;}
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px;}
+  .chip{background:rgba(255,255,255,.92);color:var(--ink);border-radius:999px;padding:8px 15px;font-size:13.5px;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.18);}
+  .chip span{color:var(--terra);}
+
+  /* Section headers */
+  .kicker{display:inline-block;background:var(--terra-soft);color:var(--terra);font-weight:800;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+  h2.sec{font-size:33px;margin:14px 0 6px;line-height:1.08;}
+  .lead{color:var(--muted);font-size:16px;margin:0 0 18px;max-width:60ch;}
+  h3{font-size:19px;margin:22px 0 6px;color:var(--ink);}
+  p{margin:0 0 11px;}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--sage);color:#fff;font-weight:800;font-family:'Nunito';font-size:15px;margin-right:6px;}
+
+  .figure{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);margin:6px 0 4px;border:5px solid #fff;}
+  .figure img{display:block;width:100%;height:100%;object-fit:cover;}
+  .figure.tall img{aspect-ratio:3/4;}
+  .figure.wide img{aspect-ratio:4/3;}
+  .cap{font-size:12.5px;color:var(--muted);font-style:italic;text-align:center;margin:7px 0 0;}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+  .grid2.v{align-items:center;}
+
+  ul.clean{list-style:none;padding:0;margin:0 0 12px;}
+  ul.clean li{position:relative;padding-left:26px;margin-bottom:8px;}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--terra);}
+  ul.clean.sage li::before{background:var(--sage);}
+
+  .box{border-radius:16px;padding:18px 20px;margin:14px 0;break-inside:avoid;}
+  .box h3{margin:0 0 8px;display:flex;align-items:center;gap:9px;font-size:18px;}
+  .box .ico{width:30px;height:30px;flex:0 0 30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;}
+  .box.safety{background:var(--blue-soft);border:1px solid var(--blue-line);}
+  .box.safety .ico{background:var(--blue-line);color:#fff;}
+  .box.health{background:var(--rose);border:1px solid var(--rose-line);}
+  .box.health .ico{background:var(--rose-line);color:#fff;}
+  .box.warn{background:#FCEFD2;border:1px solid var(--gold);}
+  .box.warn .ico{background:var(--gold);color:#5a4410;}
+  .box.tip{background:var(--sage-soft);border:1px solid var(--sage);}
+  .box.tip .ico{background:var(--sage);color:#fff;}
+
+  table{width:100%;border-collapse:collapse;margin:10px 0 6px;font-size:14.5px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
+  th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line);}
+  th{background:var(--sage);color:#fff;font-family:'Nunito';font-weight:800;font-size:13px;letter-spacing:.02em;}
+  tr:last-child td{border-bottom:none;}
+  td strong{color:var(--terra);}
+
+  .check{list-style:none;padding:0;margin:0;column-count:2;column-gap:26px;}
+  .check li{break-inside:avoid;position:relative;padding:7px 0 7px 30px;border-bottom:1px solid var(--line);font-weight:600;}
+  .check li::before{content:"";position:absolute;left:0;top:9px;width:17px;height:17px;border-radius:5px;border:2px solid var(--terra);background:#fff;}
+
+  .timeline{list-style:none;padding:0;margin:6px 0;}
+  .timeline li{display:grid;grid-template-columns:108px 1fr;gap:14px;padding:12px 0;border-bottom:1px dashed var(--line);break-inside:avoid;}
+  .timeline .day{font-family:'Fraunces';font-weight:700;color:var(--terra);font-size:16px;}
+  .timeline .day small{display:block;color:var(--muted);font-family:'Nunito';font-weight:700;font-size:11.5px;}
+
+  .footer{position:absolute;bottom:18px;left:52px;right:52px;display:flex;justify-content:space-between;align-items:center;color:#A89B88;font-size:11.5px;font-weight:700;border-top:1px solid var(--line);padding-top:9px;}
+  .footer .paw{color:var(--terra);}
+
+  .pawrow{letter-spacing:.5em;color:var(--terra);opacity:.5;font-size:14px;}
+  .disclaimer{font-size:12.5px;color:var(--muted);background:#fff;border-radius:12px;padding:14px 16px;border:1px solid var(--line);}
+
+  @media print{
+    body{background:#fff;}
+    .helper{display:none;}
+    .page{margin:0;border-radius:0;box-shadow:none;width:100%;min-height:auto;page-break-after:always;}
+    .page:last-child{page-break-after:auto;}
+    .cover-hero{height:100vh;}
+    @page{size:A4;margin:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="helper">
+  <span>📄 <b>Pour garder en PDF&nbsp;:</b> ouvre ce fichier dans ton navigateur, fais <b>Cmd/Ctrl + P</b>, puis choisis « Enregistrer en PDF ». Pense à activer « Graphiques d'arrière-plan ».</span>
+  <button onclick="window.print()">Enregistrer en PDF</button>
+</div>
+
+<!-- ===================== COVER ===================== -->
+<section class="page cover">
+  <div class="cover-hero">
+    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122227_6e9c8e0c-437f-4c30-a86f-8dc6a99a2432.png" alt="Mila, chaton Scottish Fold">
+    <div class="cover-veil"></div>
+    <div class="cover-tag">Guide d'accueil</div>
+    <div class="cover-block">
+      <h1>Bienvenue<br>Mila&nbsp;🐾</h1>
+      <div class="sub">Ton premier jour à la maison — le 19 juin 2026</div>
+      <div class="chips">
+        <div class="chip"><span>Race&nbsp;:</span> Scottish Fold</div>
+        <div class="chip"><span>Née le&nbsp;:</span> 19 avril 2026</div>
+        <div class="chip"><span>Sexe&nbsp;:</span> Femelle</div>
+        <div class="chip"><span>Âge&nbsp;:</span> 8 semaines</div>
+        <div class="chip"><span>Robe&nbsp;:</span> Silver tabby</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== P1 : PREMIERS JOURS ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 1</span>
+  <h2 class="sec">Les tout premiers jours</h2>
+  <p class="lead">Mila n'a que 8 semaines : c'est un bébé qui vient de quitter sa mère et sa fratrie. Les premiers jours, l'objectif n'est pas de jouer beaucoup, mais de la <b>rassurer</b>.</p>
+
+  <div class="box tip">
+    <h3><span class="ico">★</span> La règle d'or de la transition</h3>
+    <p style="margin:0">Aménage une seule <b>« pièce refuge »</b> calme (chambre, bureau) pendant 1 à 3 jours, avec tout son nécessaire. Elle y prend ses repères, puis tu ouvres progressivement le reste de la maison. Une grande maison d'un coup, c'est terrifiant pour un si petit chaton.</p>
+  </div>
+
+  <h3>Dans sa pièce refuge, installe&nbsp;:</h3>
+  <ul class="clean">
+    <li>Ses <b>gamelles d'eau et de nourriture</b> — toujours <b>éloignées de la litière</b>.</li>
+    <li>Sa <b>litière</b>, dans un coin calme et accessible.</li>
+    <li>Un <b>couchage chaud et douillet</b> + une cachette (carton, igloo).</li>
+    <li>Quelques <b>jouets</b> et un <b>griffoir</b>.</li>
+    <li>Si l'éleveur t'a donné un tissu avec l'odeur de sa mère, place-le dans son lit.</li>
+  </ul>
+
+  <div class="grid2 v">
+    <div>
+      <h3>Les bons réflexes</h3>
+      <ul class="clean sage">
+        <li><b>La laisser venir</b> à son rythme : on ne sort pas le chaton de force de la caisse, on ouvre la porte et on attend.</li>
+        <li><b>Voix douce</b>, gestes lents, pas de bruits forts.</li>
+        <li><b>Garder l'alimentation et la litière de l'éleveur</b> les premiers jours (tout changement = stress + diarrhée).</li>
+        <li>Beaucoup de <b>sommeil</b> : un chaton dort jusqu'à 18–20 h par jour. On ne la réveille jamais.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="figure wide"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122730_b608d4b1-0ce3-4e1d-a9a0-8e0ee8dc2883.png" alt="Mila tenue délicatement"></div>
+      <p class="cap">On la soutient toujours : une main sous le poitrail, une sous l'arrière-train.</p>
+    </div>
+  </div>
+
+  <div class="box warn">
+    <h3><span class="ico">⚠</span> Sécuriser la maison avant de la laisser explorer</h3>
+    <p style="margin:0">Range fils électriques et élastiques, bloque l'accès derrière l'électroménager, ferme fenêtres et sécurise le balcon (filet), retire les <b>plantes toxiques</b> (lys, dieffenbachia, poinsettia…) et les petits objets qu'elle pourrait avaler. Vérifie machine à laver et toilettes (couvercle baissé).</p>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 1</span></div>
+</section>
+
+<!-- ===================== P2 : ENFANTS ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 2 · Priorité</span>
+  <h2 class="sec">Mila, Lilia &amp; Imran</h2>
+  <p class="lead">Avec Lilia (14 mois) et Imran (6 ans), la cohabitation est merveilleuse… à condition d'encadrer. Un chaton de 8 semaines est <b>minuscule et fragile</b>, et un tout-petit ne sait pas encore doser sa force.</p>
+
+  <div class="box safety">
+    <h3><span class="ico">♥</span> Les 5 règles d'or</h3>
+    <ul class="clean" style="margin:0">
+      <li><b>Jamais seuls ensemble&nbsp;:</b> aucune interaction enfant–chaton sans un adulte présent, surtout avec Lilia.</li>
+      <li><b>On laisse Mila tranquille</b> quand elle mange, dort ou va à la litière.</li>
+      <li><b>On caresse doucement</b> dans le sens du poil — jamais la queue, les oreilles ni les pattes.</li>
+      <li><b>On ne la poursuit pas</b> et on ne la réveille pas.</li>
+      <li><b>On la tient assis par terre</b>, jamais debout (risque de chute).</li>
+    </ul>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h3>Pour Lilia (14 mois)</h3>
+      <ul class="clean">
+        <li>Surveillance <b>constante</b> : à cet âge, on attrape, on serre, on met à la bouche.</li>
+        <li>Lui montrer la « caresse douce » main ouverte, avec ta main qui guide la sienne.</li>
+        <li>Tenir Lilia <b>loin de la litière</b> (hygiène) et ne jamais la laisser porter Mila.</li>
+      </ul>
+      <h3>Pour Imran (6 ans)</h3>
+      <ul class="clean">
+        <li>Il peut devenir le <b>« grand responsable »</b> : remplir la gamelle d'eau, agiter la canne à plumes (sous ton œil).</li>
+        <li>Lui apprendre à <b>repérer les signaux</b> et à s'éloigner si Mila les montre.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="box health" style="margin-top:34px">
+        <h3><span class="ico">!</span> Signaux « laisse-moi tranquille »</h3>
+        <ul class="clean" style="margin:0">
+          <li>Queue qui fouette / claque</li>
+          <li>Elle se fige ou se tapit</li>
+          <li>Feulement, grognement</li>
+          <li>Pupilles dilatées, corps tendu</li>
+          <li>Elle cherche à fuir / se cacher</li>
+        </ul>
+        <p style="margin:10px 0 0;font-size:13.5px">👉 On la laisse partir : on ne la retient jamais.</p>
+      </div>
+      <div class="box tip">
+        <h3><span class="ico">✚</span> Hygiène</h3>
+        <p style="margin:0;font-size:14px">Tout le monde se <b>lave les mains</b> après avoir touché Mila ou la litière. La litière reste <b>inaccessible aux enfants</b>. On ne laisse pas Mila dormir dans le lit du bébé.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 2</span></div>
+</section>
+
+<!-- ===================== P3 : ALIMENTATION ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 3</span>
+  <h2 class="sec">L'alimentation</h2>
+  <p class="lead">À 8 semaines, Mila a un tout petit estomac mais d'énormes besoins. Un aliment <b>spécial chaton</b> est indispensable jusqu'à ses ~12 mois.</p>
+
+  <div class="grid2 v">
+    <div>
+      <div class="figure wide"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122710_90d462c6-9bd4-4fec-9374-dc6161157b8d.png" alt="Mila qui mange"></div>
+      <p class="cap">La bi-nutrition (pâtée + croquettes) est l'idéal pour un chaton.</p>
+    </div>
+    <div>
+      <h3>Les principes</h3>
+      <ul class="clean">
+        <li><b>Bi-nutrition&nbsp;:</b> la pâtée hydrate, les croquettes entretiennent les dents.</li>
+        <li><b>Eau fraîche</b> à volonté, loin de la litière (une fontaine est très appréciée).</li>
+        <li><b>Transition sur 7–10 jours</b> si tu changes de marque : mélange croissant pour éviter la diarrhée.</li>
+        <li>On garde d'abord l'aliment de l'éleveur.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Repères de quantités &amp; de repas</h3>
+  <table>
+    <thead><tr><th>Âge</th><th>Repas / jour</th><th>Quantité indicative / jour</th></tr></thead>
+    <tbody>
+      <tr><td><strong>2 mois</strong> (≈ 1 kg) — Mila</td><td>4 repas</td><td>≈ 150 g de pâtée + 20 g de croquettes <em>(ou 40–50 g de croquettes seules)</em></td></tr>
+      <tr><td>3–4 mois</td><td>3–4 repas</td><td>On augmente selon le poids et l'emballage</td></tr>
+      <tr><td>6 mois</td><td>2–3 repas</td><td>Transition vers les rations « junior »</td></tr>
+      <tr><td>Adulte</td><td>2 repas</td><td>Ration d'entretien stérilisé</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px;color:var(--muted)">Chiffres indicatifs : suis toujours les doses de l'emballage selon le poids, et fais valider la ration par ton vétérinaire.</p>
+
+  <div class="box warn">
+    <h3><span class="ico">⊘</span> Aliments interdits</h3>
+    <p style="margin:0"><b>Lait de vache</b> (diarrhée — le chaton est intolérant au lactose), chocolat, oignon &amp; ail, raisin/raisin sec, os cuits, charcuterie et restes salés/épicés, aliments pour chien. En cas de doute : on ne donne pas.</p>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 3</span></div>
+</section>
+
+<!-- ===================== P4 : LITIERE ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 4</span>
+  <h2 class="sec">La litière</h2>
+  <p class="lead">Les chats sont très propres : un bac bien pensé et bien placé, et Mila l'utilisera presque toute seule.</p>
+
+  <div class="grid2 v">
+    <div>
+      <h3>Le bon réglage</h3>
+      <ul class="clean">
+        <li><b>Nombre de bacs = nombre de chats + 1</b> → vise <b>2 bacs</b>, dans deux endroits différents.</li>
+        <li><b>Grand bac à entrée basse</b>, ouvert (les bacs fermés peuvent intimider un chaton).</li>
+        <li><b>Emplacement calme</b>, à l'écart du passage, <b>loin des gamelles</b> et hors de portée des enfants.</li>
+        <li><b>Litière agglomérante douce et non parfumée</b> (proche du sable, agréable aux coussinets).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="figure wide"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122713_7f298c55-413f-4ada-84aa-8ad1181e245c.png" alt="Mila à la litière"></div>
+      <p class="cap">Un bac à entrée basse : Mila y monte sans effort.</p>
+    </div>
+  </div>
+
+  <div class="box health">
+    <h3><span class="ico">!</span> Spécial très jeune chaton</h3>
+    <p style="margin:0">Certains chatons <b>goûtent / avalent</b> la litière agglomérante les premières semaines, ce qui peut causer une occlusion. Surveille Mila : si elle en mange, utilise une <b>litière végétale non agglomérante</b> au début, puis passe à l'agglomérante vers 3–4 mois.</p>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h3>Entretien</h3>
+      <ul class="clean sage">
+        <li>Agglomérante : retirer les souillures <b>1 à 2 fois/jour</b>, nettoyage complet régulier.</li>
+        <li>Non agglomérante : <b>changement complet ~1 fois/semaine</b>.</li>
+        <li>Pas de javel forte ni de produits très parfumés.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Apprentissage</h3>
+      <ul class="clean sage">
+        <li>Montre-lui le bac dès l'arrivée ; replace-la dedans <b>après les repas et les siestes</b>.</li>
+        <li><b>Jamais de punition</b> en cas d'accident : nettoie avec un produit <b>enzymatique</b> (sinon elle revient au même endroit).</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 4</span></div>
+</section>
+
+<!-- ===================== P5 : COUCHAGE + JEU ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 5</span>
+  <h2 class="sec">Dormir, griffer, jouer</h2>
+  <p class="lead">Trois besoins essentiels pour une chatonne équilibrée : un endroit sûr où dormir, de quoi faire ses griffes, et beaucoup de jeu.</p>
+
+  <div class="grid2 v">
+    <div>
+      <div class="figure wide"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122715_3665f764-f1a3-48a4-b359-b7a1b18e6a37.png" alt="Mila qui dort"></div>
+      <p class="cap">Un nid chaud : à 8 semaines, elle se refroidit vite.</p>
+    </div>
+    <div>
+      <h3>Repos &amp; refuges</h3>
+      <ul class="clean">
+        <li>Un <b>panier douillet</b> dans un coin calme (elle choisira peut-être un autre endroit, c'est normal).</li>
+        <li>Des <b>zones en hauteur / refuges</b> inaccessibles aux enfants : indispensable avec un bébé à la maison.</li>
+        <li>Pas de courant d'air, couchage bien chaud.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid2 v">
+    <div>
+      <h3>Griffades</h3>
+      <ul class="clean sage">
+        <li>Un <b>arbre à chat + griffoir</b> dès le début : protège les meubles et muscle ses pattes.</li>
+        <li>Propose du <b>vertical et de l'horizontal</b> pour voir ce qu'elle préfère.</li>
+      </ul>
+      <h3>Jeu</h3>
+      <ul class="clean sage">
+        <li><b>Sessions courtes et fréquentes</b> (canne à plumes, balles, souris) : on imite la chasse.</li>
+        <li><b>Jamais les mains ni les pieds</b> comme jouets — sinon elle apprend à mordre la peau.</li>
+        <li>Range ficelles &amp; élastiques (risque d'ingestion).</li>
+      </ul>
+    </div>
+    <div>
+      <div style="display:flex;gap:12px">
+        <div class="figure wide" style="flex:1;margin:0"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122728_d04ca085-e649-4b7b-b287-9be631c4d0b8.jpeg" alt="Mila sur un arbre à chat"></div>
+        <div class="figure wide" style="flex:1;margin:0"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3DPMlAOH8bSSkjRR46Gv99YiNI1/hf_20260619_122724_da2c11b3-4ee3-4205-b93e-a400d8365667.jpeg" alt="Mila qui joue avec une canne à plumes"></div>
+      </div>
+      <p class="cap">Griffoir et canne à plumes : on canalise son énergie — à partager avec Imran.</p>
+    </div>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 5</span></div>
+</section>
+
+<!-- ===================== P6 : SANTE ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 6</span>
+  <h2 class="sec">Santé &amp; vétérinaire</h2>
+  <p class="lead">Un premier rendez-vous vétérinaire <b>cette semaine</b> permet de faire un bilan, vérifier l'identification et lancer le calendrier de prévention.</p>
+
+  <h3>Calendrier de prévention (France)</h3>
+  <table>
+    <thead><tr><th>Quoi</th><th>Quand</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Vaccins</strong> — typhus (panleucopénie) + coryza</td><td>Primovaccination dès 8 semaines, rappels à <b>12</b> et <b>16 semaines</b>, puis rappel annuel</td></tr>
+      <tr><td>Leucose (FeLV)</td><td>Conseillée si accès extérieur ou vie en collectivité</td></tr>
+      <tr><td><strong>Vermifuge</strong></td><td>Tous les <b>mois jusqu'à 6 mois</b>, puis tous les 3–6 mois</td></tr>
+      <tr><td>Antiparasitaires (puces)</td><td>Selon recommandation du vétérinaire</td></tr>
+      <tr><td><strong>Identification par puce</strong></td><td><b>Obligatoire en France</b> (enregistrement I-CAD) — souvent déjà faite par l'éleveur</td></tr>
+      <tr><td>Stérilisation</td><td>À discuter, souvent vers <b>5–6 mois</b></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box tip">
+    <h3><span class="ico">✓</span> Documents à récupérer auprès de l'éleveur</h3>
+    <p style="margin:0">Certificat de cession, document d'information, <b>carnet de santé / vaccination</b>, attestation de puce. Pense à faire le <b>changement de propriétaire à ton nom auprès de l'I-CAD</b> (en ligne) : c'est ce qui te permet de récupérer Mila si elle se perd.</p>
+  </div>
+
+  <div class="box health">
+    <h3><span class="ico">+</span> Trousse / réflexes utiles</h3>
+    <p style="margin:0">Note le numéro de ta clinique et celui d'un <b>vétérinaire de garde / urgences</b>. Surveille appétit, litière (selles, urines), énergie : tout changement net pendant plusieurs jours = appel au véto.</p>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 6</span></div>
+</section>
+
+<!-- ===================== P7 : SCOTTISH FOLD ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 7 · Important</span>
+  <h2 class="sec">Spécial Scottish&nbsp;Fold</h2>
+  <p class="lead">Les adorables oreilles pliées de Mila viennent d'une particularité génétique qu'il faut connaître pour bien veiller sur elle toute sa vie.</p>
+
+  <div class="box health">
+    <h3><span class="ico">!</span> Ce qu'il faut savoir : l'ostéochondrodysplasie</h3>
+    <p style="margin:0 0 8px">Le gène qui plie les oreilles (gène <b>Fd</b>) agit sur le <b>cartilage de tout le corps</b>. Tous les Scottish Fold développent, à un degré <b>variable</b>, une atteinte articulaire/osseuse appelée <b>ostéochondrodysplasie</b> (SFOCD), qui peut entraîner raideur, douleur et arthrose précoce (pattes, chevilles, queue).</p>
+    <p style="margin:0">Ce n'est pas une fatalité au quotidien : avec un bon suivi, beaucoup de Scottish Fold vivent très bien. Mais cela demande de l'<b>attention</b>.</p>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h3>Signes à surveiller</h3>
+      <ul class="clean">
+        <li>Démarche <b>raide</b> ou sautillante</li>
+        <li>Réticence à <b>sauter, courir, jouer</b></li>
+        <li><b>Queue épaisse</b> ou peu souple</li>
+        <li>Boiterie, articulations gonflées</li>
+      </ul>
+      <p style="font-size:13.5px;color:var(--muted)">👉 Au moindre doute, consulte rapidement : un suivi tôt fait toute la différence.</p>
+    </div>
+    <div>
+      <h3>Les bons gestes</h3>
+      <ul class="clean sage">
+        <li><b>Ne jamais manipuler la queue</b> en force (ni la tirer) — à apprendre aux enfants.</li>
+        <li>Maintenir un <b>poids de forme</b> : le surpoids use les articulations.</li>
+        <li>Faciliter l'accès : <b>litière à entrée basse</b>, petites marches/rampes pour éviter les gros sauts.</li>
+        <li><b>Contrôles vétérinaires réguliers</b> ; oméga-3 / compléments articulaires sur avis du véto.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="box tip">
+    <h3><span class="ico">♥</span> Les oreilles pliées</h3>
+    <p style="margin:0">Le pli peut retenir le cérumen : <b>vérifie ses oreilles chaque semaine</b> et nettoie en douceur avec un produit auriculaire adapté (jamais de coton-tige enfoncé).</p>
+  </div>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 7</span></div>
+</section>
+
+<!-- ===================== P8 : TOILETTAGE + CHECKLIST ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 8</span>
+  <h2 class="sec">Toilettage &amp; matériel</h2>
+
+  <div class="grid2">
+    <div>
+      <h3>Routine de toilettage</h3>
+      <ul class="clean">
+        <li><b>Brossage doux</b> 1 à 2 fois/semaine (poil court) — un beau moment de complicité.</li>
+        <li><b>Oreilles&nbsp;:</b> vérification hebdomadaire (voir chapitre Scottish Fold).</li>
+        <li><b>Yeux&nbsp;:</b> essuie les petites sécrétions avec une compresse humide.</li>
+        <li><b>Griffes&nbsp;:</b> habitue-la tôt à la coupe des pointes (~toutes les 2–3 semaines) — protège aussi les enfants.</li>
+        <li><b>Dents&nbsp;:</b> si possible, habitue-la au brossage très jeune.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="box tip" style="margin-top:30px">
+        <h3><span class="ico">★</span> Astuce manipulation</h3>
+        <p style="margin:0;font-size:14px">Touche souvent ses <b>pattes, oreilles et babines</b> en la récompensant (friandise chaton) : adulte, elle se laissera soigner et couper les griffes sans stress.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Check-list du matériel</h3>
+  <ul class="check">
+    <li>2 bacs à litière + pelle</li>
+    <li>Litière adaptée (douce, non parfumée)</li>
+    <li>Gamelles eau + nourriture (inox/céramique)</li>
+    <li>Croquettes + pâtée « chaton »</li>
+    <li>Panier / couchage chaud</li>
+    <li>Arbre à chat + griffoir</li>
+    <li>Jouets (canne à plumes, balles)</li>
+    <li>Caisse de transport</li>
+    <li>Brosse douce</li>
+    <li>Coupe-griffes</li>
+    <li>Nettoyant auriculaire</li>
+    <li>Nettoyant enzymatique (accidents)</li>
+    <li>Cache-prises / range-fils</li>
+    <li>Protection fenêtres &amp; balcon</li>
+  </ul>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 8</span></div>
+</section>
+
+<!-- ===================== P9 : PLANNING ===================== -->
+<section class="page">
+  <span class="kicker">Chapitre 9</span>
+  <h2 class="sec">Le planning de la 1ʳᵉ semaine</h2>
+  <p class="lead">Un fil conducteur jour par jour pour une transition tout en douceur.</p>
+
+  <ul class="timeline">
+    <li><div class="day">Jour 1<small>Aujourd'hui</small></div><div>Installe la pièce refuge. Ouvre la caisse et <b>laisse Mila sortir seule</b>. Lumières douces, calme. Les enfants viennent dire bonjour <b>un par un</b>, brièvement et assis. Montre-lui l'eau et la litière.</div></li>
+    <li><div class="day">Jours 2–3</div><div>Elle explore sa pièce. Petits jeux doux, présence rassurante. On garde l'<b>alimentation et la litière de l'éleveur</b>. Premières habitudes de repas (4/jour).</div></li>
+    <li><div class="day">Jours 3–4</div><div>Ouvre progressivement les <b>autres pièces</b>, sous surveillance. Présentations calmes avec Lilia et Imran, toujours accompagnées.</div></li>
+    <li><div class="day">Jours 5–7</div><div>La routine repas / jeu / sommeil s'installe. <b>Premier RDV vétérinaire</b>. Commence l'habituation au brossage et à la manipulation des pattes.</div></li>
+  </ul>
+
+  <div class="box safety">
+    <h3><span class="ico">✓</span> À faire cette semaine</h3>
+    <ul class="clean" style="margin:0">
+      <li>Prendre le <b>1ᵉʳ rendez-vous vétérinaire</b> (bilan + calendrier vaccins/vermifuge).</li>
+      <li>Vérifier la <b>puce</b> et faire le <b>changement de propriétaire I-CAD</b> à ton nom.</li>
+      <li>Faire <b>valider la ration</b> (quantités) par le vétérinaire.</li>
+      <li>Installer le <b>2ᵉ bac à litière</b> et les zones-refuges en hauteur.</li>
+    </ul>
+  </div>
+
+  <p class="disclaimer">Ce guide rassemble des repères généraux pour bien accueillir Mila ; il ne remplace pas l'avis de ton vétérinaire, en particulier pour les quantités de nourriture et le suivi spécifique au Scottish Fold. En cas de doute sur sa santé, contacte toujours un professionnel.</p>
+
+  <p style="text-align:center;margin-top:18px" class="pawrow">🐾 🐾 🐾</p>
+  <p style="text-align:center;font-family:'Fraunces';font-size:20px;color:var(--terra);margin:4px 0 0">Bienvenue dans la famille, Mila&nbsp;!</p>
+
+  <div class="footer"><span class="paw">🐾 Mila</span><span>Guide d'accueil · 9</span></div>
+</section>
+
+</body>
+</html>
